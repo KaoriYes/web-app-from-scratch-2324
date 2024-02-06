@@ -21,7 +21,7 @@ const getTrackInfo = async () => {
     try {
         const response = await axios.get('https://api.tidal.com/v1/tracks/251380837?countryCode=US', {
             headers: {
-                'X-Tidal-Token': tidalApiToken;
+                'X-Tidal-Token': tidalApiToken
             }
         });
         console.log(response.data);
