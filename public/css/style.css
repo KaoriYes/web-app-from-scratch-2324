@@ -1,0 +1,73 @@
+@font-face {
+    font-family: Mona sans;
+    src: url(../fonts/MonaSans-Regular.ttf);
+    font-weight: 400;
+    }
+
+@font-face {
+    font-family: Mona sans;
+    src: url(../fonts/MonaSans-Light.ttf);
+    font-weight: 300;
+    }
+
+@font-face {
+    font-family: Mona sans;
+    src: url(../fonts/MonaSans-ExtraLight.ttf);
+    font-weight: 200;
+    }
+
+@font-face {
+    font-family: Mona sans;
+    src: url(../fonts/MonaSans-Medium.ttf);
+    font-weight: 500;
+    }
+
+
+@font-face {
+    font-family: Mona sans;
+    src: url(../fonts/MonaSans-Bold.ttf);
+    font-weight: 700;
+    }
+
+@font-face {
+    font-family: Mona sans;
+    src: url(../fonts/MonaSans-SemiBold.ttf);
+    font-weight: 600;
+    }
+
+:root {
+    /* font-size: min(calc(1em + 1vw), 4em); */
+    --c-creme: #f0ece3;
+    --p-purple: #131444;
+    --primary-color: var(--c-creme);
+    --secondary-color: var(--p-purple);
+    --tertiary-color: #00000;
+    --primary-font: Mona sans, sans serif;
+    /* --secondary-font: Gallient, sans serif; */
+    /* --dist-det-week: 2.5em; */
+    --shadow: 4px 4px 10px #1314443f;
+    }
+
+
+body{
+    font-family: var(--primary-font);
+    font-size: 1.25em;
+    font-weight: 300;
+    color: var(--secondary-color);
+    
+    background-color: var(--primary-color);
+    
+    }
+
+/* Hiding class, making content visible only to screen readers but not visually */
+/* "sr" meaning "screen-reader" */
+
+.sr-only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    }
