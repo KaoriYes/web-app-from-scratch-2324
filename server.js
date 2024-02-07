@@ -55,7 +55,7 @@ axios.get('https://openapi.tidal.com/albums/109485854?countryCode=US', {
     .then(response => {
         // console.log(response.data);
         tidalInfo = response.data.resource;
-        console.log(tidalInfo);
+        // console.log(tidalInfo);
         tidalInfo?.artists.map(artist => {
             tidalArtist = artist;
             }
