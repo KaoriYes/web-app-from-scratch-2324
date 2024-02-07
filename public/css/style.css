@@ -207,21 +207,10 @@ header section:nth-of-type(2) img{
     left: 0;
     object-position: 50% 40%;
     /* object-fit: fill; */
-    
+    -webkit-mask: radial-gradient(transparent 1em, red 0);
+    mask: radial-gradient(transparent 1em, red 0);
     }
 
-
-header section:nth-of-type(2):before{
-    content: "";
-    position: absolute;
-    top: calc(50% - 1.25em);
-    left: calc(50% - 1.25em);
-    width: 2.5em;
-    height: 2.5em;
-    background-color: var(--primary-color);
-    z-index: 10;
-    border-radius: 50%;
-    }
 /* classes */
 
 path{

@@ -20,7 +20,7 @@ const axios = require('axios');
 
 
 // const b64creds = Buffer.from(`${tidalClientId}:${tidalClientSecret}`).toString('base64');
-
+//
 // axios.post( 'https://auth.tidal.com/v1/oauth2/token', {
 //     grant_type: 'client_credentials'
 // }, {
@@ -45,7 +45,7 @@ const axios = require('axios');
 
 var tidalInfo = '';
 var tidalArtist = '';
-axios.get('https://openapi.tidal.com/albums/271240948?countryCode=US', {
+axios.get('https://openapi.tidal.com/albums/109485854?countryCode=US', {
     headers: {
         'accept': 'application/vnd.tidal.v1+json',
         'Authorization': `Bearer ${accessToken}`,
