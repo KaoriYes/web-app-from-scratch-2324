@@ -4,21 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible"
+          content="ie=edge">
     <title>Web App From Scratch 23-24</title>
-	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet"
+          href="/css/style.css">
 </head>
 <body>
 	<header>
-		<h1><span class="sr-only">Dit is het portfolio van:</span>Quinten Kok</h1>
+		<section>
+			<h1>
+				<span class="sr-only">Dit is het portfolio van:Quinten Kok Aka</span>
+				IdleGirlScout
+			</h1>
+			<p><i>Een blij ei</i></p>
+		</section>
 		<nav>
 			<ul>
-			<li>
-				<a href="/">Huis</a>
-				<a href="/work">Mijn werk</a>
-				<a href="/bewwwustt">Mijn blog</a>
-				<a href="/about">Over mij</a>
-			</li>
+				<li>
+					<a href="/" aria-current="page">Home</a>
+				</li>
+				<li>
+					<a href="/work">Mijn werk</a>
+				</li>
+				<li>
+					<a href="/bewwwustt">Mijn blog</a>
+				</li>
+				<li>
+					<a href="/about">Over mij</a>
+				</li>
 			</ul>
 		</nav>
+		<section>
+			<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 616.07 452.47"><defs></defs><path id="curve" class="cls-1" d="M82.1,436.57l2.88-.51c142.72-25.28,277.59-83.44,378.93-169.88h0c88.26-65.58,200.64-152.27,200.68-232.13L618.87.21"/>
+				<text width="500">
+					<textPath xlink:href="#curve">
+        				IdleGirlScout
+					</textPath>
+				</text>
+			</svg>
+			<h2><marquee><%= tidalInfo.title %></marquee></h2>
+			<h3><%= tidalArtist.name %></h3>
+			<h4>Side A</h4>
+			<img src="<%= tidalInfo.imageCover[0].url %>"
+				 alt="">
+		</section>
 	</header>
+

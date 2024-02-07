@@ -44,7 +44,8 @@ const axios = require('axios');
 
 
 var tidalInfo = '';
-axios.get('https://openapi.tidal.com/albums/59727856?countryCode=US', {
+var tidalArtist = '';
+axios.get('https://openapi.tidal.com/albums/271240948?countryCode=US', {
     headers: {
         'accept': 'application/vnd.tidal.v1+json',
         'Authorization': `Bearer ${accessToken}`,
@@ -54,14 +55,18 @@ axios.get('https://openapi.tidal.com/albums/59727856?countryCode=US', {
     .then(response => {
         // console.log(response.data);
         tidalInfo = response.data.resource;
-        // console.log(tidalInfo);
+        console.log(tidalInfo);
+        tidalInfo?.artists.map(artist => {
+            tidalArtist = artist;
+            }
+        )
     })
     .catch(error => {
         console.error('Error:', error.response ? error.response.data : error.message);
     });
 app.get('/', (req, res) => {
-    console.log(tidalInfo);
-    res.render('index', { tidalInfo });
+    // console.log(tidalInfo);
+    res.render('index', { tidalInfo, tidalArtist });
 });
 
 

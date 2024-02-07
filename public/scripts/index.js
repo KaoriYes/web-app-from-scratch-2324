@@ -1,7 +1,7 @@
 // console.log('Hello from the index.js file');
 async function fetchData() {
     try {
-        const response = await fetch( './data/eigenschappen.json');
+        const response = await fetch('./data/eigenschappen.json');
         // console.log(data);
         return await response.json();
     } catch (error) {
@@ -17,10 +17,6 @@ fetch('./uploads/Weeklynerd_1.md')
         console.log(result); // Log the fetched content
         document.getElementById('content').innerHTML = result; // Set the content
     });
-
-
-
-
 
 
 //HIer ga ik even naar kijken, dit omschrijven naar articles voor de weekly nerd.

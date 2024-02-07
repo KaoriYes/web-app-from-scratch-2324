@@ -48,10 +48,15 @@
     --shadow: 4px 4px 10px #1314443f;
     }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
 
-body{
+body {
     font-family: var(--primary-font);
-    font-size: 1.25em;
+    font-size: 1em;
     font-weight: 300;
     color: var(--secondary-color);
     
@@ -59,15 +64,190 @@ body{
     
     }
 
+h1 {
+    
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    }
+
+h2 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    }
+
+h3 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+    }
+
+
+/* header */
+header {
+    display: flex;
+    width: 100dvw;
+    height: 100dvh;
+    gap: 4em;
+    padding-top: 3em;
+    }
+header section:nth-of-type(1){
+    margin: 0 0 0 5em;
+    }
+header section:nth-of-type(1) h1{
+    margin-bottom: 0;
+    }
+header section:nth-of-type(1) p{
+    margin-top: .25em;
+    }
+header ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: .3em;
+    }
+header ul li a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    position: relative;
+    }
+header ul li a:before {
+    position: absolute;
+    bottom: -.125em;
+    width: 100%;
+    height: 1px;
+    content: "";
+    transition: transform 0.3s ease-in;
+    transform: scale3d(0, 2, 2);
+    transform-origin: 100%;
+    background-color: var(--secondary-color);
+    }
+header ul li a:hover:before {
+    transform: scale3d(1, 2, 5);
+    transform-origin: 0;
+    animation-fill-mode: forwards;
+    }
+header ul li a:after{
+    position: absolute;
+    bottom: -.125em;
+    width: 100%;
+    height: 1px;
+    content: "";
+    left: 0;
+    /* transition: transform 0.3s ease-in; */
+    /* transform: scale3d(0, 2, 2); */
+    transform-origin: 100%;
+    background-color: var(--secondary-color);
+    }
+header ul li a[aria-current='page'] {
+    font-weight: 700;
+    }
+
+header section:nth-of-type(2){
+    position: absolute;
+    width: 50vw;
+    height: 50vw;
+    left: calc(50% - 25vw);
+    top: calc(50% - 25vw);
+    animation: rotating 4s linear infinite;
+    }
+header section:nth-of-type(2) svg{
+    position: absolute;
+    z-index: 11;
+    filter: invert(100%);
+    width: 15em;
+    object-fit: inherit;
+    bottom: 4em;
+    right: 43px;
+    rotate: -15deg;
+    }
+header section:nth-of-type(2) svg textPath{
+    font-size: 6.5em;
+    }
+header section:nth-of-type(2) h2{
+    position: absolute;
+    width: 10em;
+    height: 3em;
+    text-wrap: nowrap;
+    overflow: hidden;
+    left: 10em;
+    top: 35%;
+    z-index: 11;
+    transform: translate(-50%, -50%);
+    /* filter: invert(100%); */
+    font-size: 2em;
+    color: white;
+    }
+header section:nth-of-type(2) h3{
+    position: absolute;
+    left: 4.5em;
+    top: 65%;
+    z-index: 11;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.75em;
+    }
+header section:nth-of-type(2) h4{
+    position: absolute;
+    right: 3em;
+    top: 50%;
+    z-index: 11;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.5em;
+    }
+    
+header section:nth-of-type(2) img{
+    width: 50vw;
+    border-radius: 50%;
+    height: 50vw;
+    position: absolute;
+    top:0;
+    left: 0;
+    object-position: 50% 40%;
+    /* object-fit: fill; */
+    
+    }
+
+
+header section:nth-of-type(2):before{
+    content: "";
+    position: absolute;
+    top: calc(50% - 1.25em);
+    left: calc(50% - 1.25em);
+    width: 2.5em;
+    height: 2.5em;
+    background-color: var(--primary-color);
+    z-index: 10;
+    border-radius: 50%;
+    }
+/* classes */
+
+path{
+    fill: transparent;
+    }
 /* Hiding class, making content visible only to screen readers but not visually */
 /* "sr" meaning "screen-reader" */
 
 .sr-only:not(:focus):not(:active) {
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
+    position: absolute;
+    width: 1px;
     height: 1px;
     overflow: hidden;
-    position: absolute;
     white-space: nowrap;
-    width: 1px;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    }
+
+
+/* keyframes */
+@keyframes rotating {
+    from {
+        transform: rotate(0deg);
+        }
+    
+    to {
+        transform: rotate(360deg);
+        }
     }
