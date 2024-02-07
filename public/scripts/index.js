@@ -1,4 +1,4 @@
-console.log('Hello from the index.js file');
+// console.log('Hello from the index.js file');
 async function fetchData() {
     try {
         const response = await fetch( './data/eigenschappen.json');
@@ -11,12 +11,12 @@ async function fetchData() {
 
 fetchData().then(data => console.log(data.eend));
 
-// fetch('../readme.md')
-//     .then(response => response.text())
-//     .then(result => {
-//         console.log(result); // Log the fetched content
-//         document.getElementById('content').innerHTML = result; // Set the content
-//     });
+fetch('./uploads/Weeklynerd_1.md')
+    .then(response => response.text())
+    .then(result => {
+        console.log(result); // Log the fetched content
+        document.getElementById('content').innerHTML = result; // Set the content
+    });
 
 
 
@@ -24,20 +24,23 @@ fetchData().then(data => console.log(data.eend));
 
 
 //HIer ga ik even naar kijken, dit omschrijven naar articles voor de weekly nerd.
-//document.body.style.display = "none"; // Hide the page until it's finished rendering.
+// function weeklyNerd() {
+//     var mdDivs = document.querySelectorAll("[data-md-file]"); // Get all elements with 'data-md-file' attribute.
 //
-// document.createElement("markdown");
-// var md_tags = document.getElementsByTagName("markdown"); // Returns array of all markdown tags.
+//     mdDivs.forEach(function(mdDiv) {
+//         var mdFile = mdDiv.getAttribute("data-md-file"); // Get the Markdown file path from the data attribute.
 //
-// for (var i = 0; i < md_tags.length; i++) { // Iterate through all the tags, and generate the HTML.
-//     var md_text = md_tags[i].textContent.replace(/^[^\S\n]+/mg, ""); // I love regex, so shoot me.
-//
-//     var md_div = document.createElement("div"); // Make a new div to replace the fake tag.
-//     md_div.id = "content";
-//     md_div.innerHTML = marked(md_text);
-//
-//     md_tags[i].parentNode.appendChild(md_div); // Add remove the old raw markdown.
-//     md_tags[i].parentNode.removeChild(md_tags[i]);
+//         fetch(mdFile)
+//             .then(response => response.text())
+//             .then(mdText => {
+//                  // Convert Markdown to HTML using marked.js
+//                 // Replace the content of the current div with the HTML generated from Markdown.
+//                 mdDiv.innerHTML = marked(mdText);
+//             })
+//             .catch(error => {
+//                 console.error('Error fetching Markdown file:', error);
+//             });
+//     });
 // }
 //
-// document.body.style.display = ""; // Show the rendered page.
+// weeklyNerd();
