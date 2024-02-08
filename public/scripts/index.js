@@ -11,12 +11,12 @@ async function fetchData() {
 
 fetchData().then(data => console.log(data.eend));
 
-fetch('./uploads/Weeklynerd_1.md')
-    .then(response => response.text())
-    .then(result => {
-        console.log(result); // Log the fetched content
-        document.getElementById('content').innerHTML = result; // Set the content
-    });
+// fetch('./uploads/Weeklynerd_1.md')
+//     .then(response => response.text())
+//     .then(result => {
+//         console.log(result); // Log the fetched content
+//         document.getElementById('content').innerHTML = result; // Set the content
+//     });
 
 
 //HIer ga ik even naar kijken, dit omschrijven naar articles voor de weekly nerd.

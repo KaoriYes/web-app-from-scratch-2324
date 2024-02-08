@@ -152,6 +152,7 @@ header section:nth-of-type(2){
     top: calc(50% - 25vw);
     animation: rotating 4s linear infinite;
     }
+
 header section:nth-of-type(2) svg{
     position: absolute;
     z-index: 11;
@@ -181,7 +182,7 @@ header section:nth-of-type(2) h2{
     }
 header section:nth-of-type(2) h3{
     position: absolute;
-    left: 4.5em;
+    left: 5.5em;
     top: 65%;
     z-index: 11;
     transform: translate(-50%, -50%);
@@ -212,12 +213,61 @@ header section:nth-of-type(2) img{
     }
 
 
-
-
-/* main */
-main div.tidal-embed{
-    width: 25vw;
+header div.tidal-embed{
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+    width: 22em;
     }
+
+/* animation cancel */
+header > label:nth-of-type(1) {
+    position: absolute;
+    bottom: 2em;
+    right: 2em;
+    }
+header > label:nth-of-type(1) input {
+    appearance: none;
+    }
+
+/* Rpm choice */
+
+header fieldset {
+    position: absolute;
+    bottom: 25dvh;
+    left: 1em;
+    border: none;
+    }
+header fieldset div{
+    display: flex;
+    flex-direction: column;
+    }
+
+
+body:has(input#Choice1:checked) header section:nth-of-type(2){
+    animation: rotating 1.8181818s linear infinite;
+    }
+body:has(input#Choice2:checked) header section:nth-of-type(2){
+    animation: rotating 1.333333s linear infinite;
+    }
+body:has(input#Choice3:checked) header section:nth-of-type(2){
+    animation: rotating .05s linear infinite;
+    }
+body:has(input#Choice4:checked) header section:nth-of-type(2){
+    animation: rotating 3s linear infinite;
+    }
+
+
+
+body:has(label:nth-of-type(1) input#stopAnimatie:checked) header section:nth-of-type(2) {
+    animation-iteration-count: 1;
+    animation-fill-mode: backwards;
+    }
+/* main */
+
+
+
+
 
 /* classes */
 

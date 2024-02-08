@@ -2,12 +2,14 @@ const express = require("express");
 const app = express();
 const http = require('http').Server(app);
 const port = 1337;
+const { marked } = require('marked');
+const fs = require('fs');
+
+
 
 require("dotenv").config();
 
-// const tidalApiToken = process.env.TIDAL_API_TOKEN;
-const tidalClientId = process.env.TIDAL_CLIENT_ID;
-const tidalClientSecret = process.env.TIDAL_CLIENT_SECRET;
+
 const accessToken = process.env.TIDAL_ACCES_TOKEN;
 
 app.use(express.static('public'));
@@ -16,38 +18,47 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 
-const axios = require('axios');
-
-
-// const b64creds = Buffer.from(`${tidalClientId}:${tidalClientSecret}`).toString('base64');
+// const tidalApiToken = process.env.TIDAL_API_TOKEN;
+// const tidalClientId = process.env.TIDAL_CLIENT_ID;
+// const tidalClientSecret = process.env.TIDAL_CLIENT_SECRET;
+// const b64creds = btoa(`${tidalClientId}:${tidalClientSecret}`);
 //
-// axios.post( 'https://auth.tidal.com/v1/oauth2/token', {
-//     grant_type: 'client_credentials'
-// }, {
+// const formData = new URLSearchParams();
+// formData.append('grant_type', 'client_credentials');
+//
+// fetch('https://auth.tidal.com/v1/oauth2/token', {
+//     method: 'POST',
 //     headers: {
 //         'Authorization': `Basic ${b64creds}`,
 //         'Content-Type': 'application/x-www-form-urlencoded'
 //     },
-//     form: {
-//         grant_type: 'client_credentials'
-//     },
-//     json: true
+//     body: formData
 // })
 //     .then(response => {
-//         console.log('test')
-//         console.log(response.data);
+//         if (!response.ok) {
+//             throw new Error(`HTTP error! Status: ${response.status}`);
+//         }
+//         return response.json();
+//     })
+//     .then(data => {
+//         console.log('test');
+//         console.log(data);
 //     })
 //     .catch(error => {
-//         console.error('Error:', error.response ? error.response.data : error.message);
+//         console.error('Error:', error.message);
 //     });
 
-let tidalID = 245042535;
+
+let tidalID = 271240948;
 
 
 var tidalInfo = '';
 var tidalAlbum = '';
 var tidalArtist = '';
-axios.get(`https://openapi.tidal.com/albums/${tidalID}?countryCode=US`, {
+
+
+fetch(`https://openapi.tidal.com/albums/${tidalID}?countryCode=US`, {
+    method: 'GET',
     headers: {
         'accept': 'application/vnd.tidal.v1+json',
         'Authorization': `Bearer ${accessToken}`,
@@ -55,19 +66,25 @@ axios.get(`https://openapi.tidal.com/albums/${tidalID}?countryCode=US`, {
     }
 })
     .then(response => {
-        // console.log(response.data);
-        tidalInfo = response.data.resource;
-        console.log(tidalInfo);
-        tidalInfo?.artists.map(artist => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        // console.log(data);
+        tidalInfo = data.resource;
+        // console.log(tidalInfo);
+        tidalInfo?.artists.forEach(artist => {
             tidalArtist = artist;
-            }
-        )
-    })
+        })})
     .catch(error => {
         console.error('Error:', error.response ? error.response.data : error.message);
     })
 
-axios.get(`https://openapi.tidal.com/albums/${tidalID}/items?countryCode=US&offset=0`, {
+
+fetch(`https://openapi.tidal.com/albums/${tidalID}/items?countryCode=US&offset=0`, {
+    method: 'GET',
     headers: {
         'accept': 'application/vnd.tidal.v1+json',
         'Authorization': `Bearer ${accessToken}`,
@@ -75,22 +92,51 @@ axios.get(`https://openapi.tidal.com/albums/${tidalID}/items?countryCode=US&offs
     }
 })
     .then(response => {
-        // console.log(response.data);
-        tidalAlbum = response.data;
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        // console.log(data);
+        tidalAlbum = data;
         // console.log(tidalAlbum.data[1].id);
-
     })
     .catch(error => {
-        console.error('Error:', error.response ? error.response.data : error.message);
+        console.error('Error:', error.message);
     });
+
 
 
 app.get('/', (req, res) => {
     // console.log(tidalInfo);
     res.render('index', { tidalInfo, tidalArtist, tidalAlbum });
+
 });
 
 
+// fs.readFile('readme.md', 'utf8', (err, data) => {
+//     if (err) {
+//         console.error('Error reading the file:', err);
+//         return;
+//     }
+//
+//     // Convert Markdown to HTML
+//     const html = marked(data);
+//
+//     // Manipulate the HTML content
+//     const modifiedHTML = html;
+//
+//     // Log the modified HTML content
+//     console.log(modifiedHTML);
+// });
+
+
+
+//
+// app.get('/api/:slug', (req) => {
+//     res.send
+// })
 http.listen(port, () => {
     console.log('Running on Port: ' + port);
 });

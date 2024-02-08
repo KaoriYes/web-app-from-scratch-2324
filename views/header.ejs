@@ -51,5 +51,43 @@
 
 		</section>
 		<div class="tidal-embed" data-type="t" data-id="<%= tidalAlbum.data[1].id %>"></div>
+<!--		<div class="tidal-embed" data-type="t" data-id="250011941"></div>-->
+
+<!--		<button>Stop animatie</button>-->
+		<label for="stopAnimatie"> Stop animatie
+			<input type="checkbox"
+				   name="stopAnimatie"
+				   id="stopAnimatie">
+		</label>
+
+		<form>
+  <fieldset>
+    <legend>Please select your preferred vinyl speed:</legend>
+    <div>
+
+      <label for="contactChoice1">
+		  <input type="radio" id="Choice1" name="vinylRPM" value="33rpm"  />
+		  33 rpm
+	  </label>
+
+      <label for="contactChoice2">
+		  <input type="radio" id="Choice2" name="vinylRPM" value="45rpm" />
+		  45 rpm
+	  </label>
+
+      <label for="contactChoice3">
+		  <input type="radio" id="Choice3" name="vinylRPM" value="funmode" />
+		  Funmode
+	  </label>
+
+		<label for="contactChoice4">
+		  <input type="radio" id="Choice4" name="vinylRPM" value="boring" checked />
+		  Normal::boring
+	  </label>
+
+    </div>
+    <div>
+  </fieldset>
+</form>
 	</header>
 
