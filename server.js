@@ -41,11 +41,13 @@ const axios = require('axios');
 //         console.error('Error:', error.response ? error.response.data : error.message);
 //     });
 
+let tidalID = 245042535;
 
 
 var tidalInfo = '';
+var tidalAlbum = '';
 var tidalArtist = '';
-axios.get('https://openapi.tidal.com/albums/109485854?countryCode=US', {
+axios.get(`https://openapi.tidal.com/albums/${tidalID}?countryCode=US`, {
     headers: {
         'accept': 'application/vnd.tidal.v1+json',
         'Authorization': `Bearer ${accessToken}`,
@@ -55,7 +57,7 @@ axios.get('https://openapi.tidal.com/albums/109485854?countryCode=US', {
     .then(response => {
         // console.log(response.data);
         tidalInfo = response.data.resource;
-        // console.log(tidalInfo);
+        console.log(tidalInfo);
         tidalInfo?.artists.map(artist => {
             tidalArtist = artist;
             }
@@ -63,10 +65,29 @@ axios.get('https://openapi.tidal.com/albums/109485854?countryCode=US', {
     })
     .catch(error => {
         console.error('Error:', error.response ? error.response.data : error.message);
+    })
+
+axios.get(`https://openapi.tidal.com/albums/${tidalID}/items?countryCode=US&offset=0`, {
+    headers: {
+        'accept': 'application/vnd.tidal.v1+json',
+        'Authorization': `Bearer ${accessToken}`,
+        'Content-Type': 'application/vnd.tidal.v1+json'
+    }
+})
+    .then(response => {
+        // console.log(response.data);
+        tidalAlbum = response.data;
+        // console.log(tidalAlbum.data[1].id);
+
+    })
+    .catch(error => {
+        console.error('Error:', error.response ? error.response.data : error.message);
     });
+
+
 app.get('/', (req, res) => {
     // console.log(tidalInfo);
-    res.render('index', { tidalInfo, tidalArtist });
+    res.render('index', { tidalInfo, tidalArtist, tidalAlbum });
 });
 
 

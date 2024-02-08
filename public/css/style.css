@@ -211,6 +211,14 @@ header section:nth-of-type(2) img{
     mask: radial-gradient(transparent 1em, red 0);
     }
 
+
+
+
+/* main */
+main div.tidal-embed{
+    width: 25vw;
+    }
+
 /* classes */
 
 path{
