@@ -18,14 +18,14 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 
-// const tidalApiToken = process.env.TIDAL_API_TOKEN;
-// const tidalClientId = process.env.TIDAL_CLIENT_ID;
-// const tidalClientSecret = process.env.TIDAL_CLIENT_SECRET;
-// const b64creds = btoa(`${tidalClientId}:${tidalClientSecret}`);
-//
-// const formData = new URLSearchParams();
-// formData.append('grant_type', 'client_credentials');
-//
+const tidalApiToken = process.env.TIDAL_API_TOKEN;
+const tidalClientId = process.env.TIDAL_CLIENT_ID;
+const tidalClientSecret = process.env.TIDAL_CLIENT_SECRET;
+const b64creds = btoa(`${tidalClientId}:${tidalClientSecret}`);
+
+const formData = new URLSearchParams();
+formData.append('grant_type', 'client_credentials');
+
 // fetch('https://auth.tidal.com/v1/oauth2/token', {
 //     method: 'POST',
 //     headers: {
@@ -49,12 +49,12 @@ app.set('view engine', 'ejs');
 //     });
 
 
-let tidalID = 271240948;
+let tidalID = 260579298;
 
 
-var tidalInfo = '';
-var tidalAlbum = '';
-var tidalArtist = '';
+let tidalInfo = '';
+let tidalAlbum = '';
+let tidalArtist = '';
 
 
 fetch(`https://openapi.tidal.com/albums/${tidalID}?countryCode=US`, {
@@ -109,9 +109,7 @@ fetch(`https://openapi.tidal.com/albums/${tidalID}/items?countryCode=US&offset=0
 
 
 app.get('/', (req, res) => {
-    // console.log(tidalInfo);
     res.render('index', { tidalInfo, tidalArtist, tidalAlbum });
-
 });
 
 
