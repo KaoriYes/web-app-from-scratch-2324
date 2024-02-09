@@ -49,8 +49,27 @@ formData.append('grant_type', 'client_credentials');
 //     });
 
 
-let tidalID = 260579298;
+let tidalID;
 
+const tidalIDS = ["123591955", "260579298", "271240948", "174448504", "307603174", "662795", "149575174", "245042535", "655910", "2178485", "272254582", "286130505", "109485854", "286130505" ]
+
+function randomizeTidalID() {
+    const randomIndex = Math.floor(Math.random() * tidalIDS.length);
+    tidalID = tidalIDS[randomIndex];
+    // console.log(tidalID);
+}
+
+randomizeTidalID();
+
+setInterval(randomizeTidalID, 1000);
+
+
+
+
+
+
+
+console.log(tidalID);
 
 let tidalInfo = '';
 let tidalAlbum = '';
