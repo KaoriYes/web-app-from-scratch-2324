@@ -189,7 +189,7 @@ header section:nth-of-type(2) {
     z-index: -1;
     width: 40vw;
     height: 40vw;
-    animation: rotating 4s linear infinite;
+    
     }
 
 header section:nth-of-type(2) svg {
@@ -210,9 +210,9 @@ header section:nth-of-type(2) svg textPath {
 header section:nth-of-type(2) h2 {
     position: absolute;
     top: 35%;
-    left: 8.5em;
+    left: 20vw;
     z-index: 11;
-    width: 14em;
+    width: 33vw;
     /* height: 2em; */
     overflow: hidden;
     transform: translate(-50%, -50%);
@@ -220,6 +220,10 @@ header section:nth-of-type(2) h2 {
     text-wrap: nowrap;
     color: white;
     border-radius: 2em;
+    /* background-color: black; */
+    }
+header section:nth-of-type(2) h2.no-reduce{
+    display: none;
     }
 
 header section:nth-of-type(2) h3 {
@@ -255,26 +259,14 @@ header section:nth-of-type(2) img {
     mask: radial-gradient(transparent 1em, red 0);
     }
 
-header img.tonearm{
-    width: 15em;
-    position: fixed;
-    right: 22.5vw;
-    top: 12vh;
-    rotate: -15deg;
-    animation: tonearmRotate 600s linear infinite;
-    transform-origin: 80% 25%;
-    
-    }
 header div.toneArm{
     opacity: 80%;
     width: 1.25em;
-    height: 22.5em;
+    height: 30vw;
     position: fixed;
     right: 27vw;
     top: 22.5vh;
-    rotate: 12deg;
-    animation: tonearmRotate 90s linear infinite;
-    transform-origin: 80% 0%;
+    rotate: 0deg;
     background-image: linear-gradient(360deg, rgba(0,0,0,1) 13%, #828081 13%);
     z-index: -1;
     }
@@ -296,12 +288,16 @@ header div.tidal-embed {
     left: 1em;
     width: 22em;
     }
+header section.mobile-only{
+    display: none;
+    }
 
 /* animation cancel */
 header > label:nth-of-type(1) {
-    position: fixed;
-    right: 2em;
-    bottom: 2em;
+    /* position: fixed; */
+    /* right: 2em; */
+    /* bottom: 2em; */
+    display: none;
     }
 header > label:nth-of-type(1):before{
     content: "Stop";
@@ -314,10 +310,11 @@ header > label:nth-of-type(1) input {
 /* Rpm choice */
 
 header fieldset {
-    position: absolute;
-    bottom: 25dvh;
-    left: 1em;
-    border: none;
+    /* position: absolute; */
+    /* bottom: 25dvh; */
+    /* left: 1em; */
+    /* border: none; */
+    display: none;
     }
 
 header fieldset div {
@@ -326,40 +323,11 @@ header fieldset div {
     }
 
 
-body:has(input#Choice1:checked) header section:nth-of-type(2) {
-    animation: rotating 1.8181818s linear infinite;
-    }
 
-body:has(input#Choice2:checked) header section:nth-of-type(2) {
-    animation: rotating 1.333333s linear infinite;
-    }
-
-body:has(input#Choice3:checked) header section:nth-of-type(2) {
-    animation: rotating .05s linear infinite;
-    }
-
-
-body:has(input#Choice4:checked) header section:nth-of-type(2) {
-    animation: rotating 3s linear infinite;
-    }
-
-
-body:has(label:nth-of-type(1) input#stopAnimatie:checked) header section:nth-of-type(2) {
-    animation-iteration-count: 1;
-    animation-fill-mode: backwards;
-    }
-body:has(label:nth-of-type(1) input#stopAnimatie:checked) header > label:nth-of-type(1):before{
-    content: "Start";
-    }
-body:has(label:nth-of-type(1) input#stopAnimatie:checked) header div.toneArm {
-    animation: none;
-    rotate: -.1deg;
-    transition: 1s;
-    }
 /* main */
 
 main{
-    min-height: 100vh;
+    min-height: 80vh;
     margin: 5vh 5vw;
     display: flex;
     flex-direction: column;
@@ -465,7 +433,163 @@ path {
         }
 
     to{
-        transform: rotate(33deg);
+        transform: rotate(39deg);
+        }
+    
+    }
+
+@media (prefers-reduced-motion: no-preference) {
+    header div.toneArm{
+        rotate: 12deg;
+        animation: tonearmRotate 90s linear infinite;
+        transform-origin: -7px 1.75em;
+        }
+    header section:nth-of-type(2){
+        animation: rotating 4s linear infinite;
+        }
+    header section:nth-of-type(2) h2.no-reduce{
+        display: initial;
+        }
+    header section:nth-of-type(2) h2.reduce-only{
+        display: none;
+        }
+    
+    /* animation cancel */
+    header > label:nth-of-type(1) {
+        display: initial;
+        position: fixed;
+        right: 2em;
+        bottom: 2em;
+        }
+    header > label:nth-of-type(1):before{
+        content: "Stop";
+        }
+    
+    header > label:nth-of-type(1) input {
+        appearance: none;
+        }
+    
+    /* Rpm choice */
+    
+    header fieldset {
+        display: initial;
+        position: absolute;
+        bottom: 25dvh;
+        left: 1em;
+        border: none;
+        }
+    
+    header fieldset div {
+        display: flex;
+        flex-direction: column;
+        }
+    
+    body:has(input#Choice1:checked) header section:nth-of-type(2) {
+        animation: rotating 1.8181818s linear infinite;
+        }
+    
+    body:has(input#Choice2:checked) header section:nth-of-type(2) {
+        animation: rotating 1.333333s linear infinite;
+        }
+    
+    body:has(input#Choice3:checked) header section:nth-of-type(2) {
+        animation: rotating .05s linear infinite;
+        }
+    
+    
+    body:has(input#Choice4:checked) header section:nth-of-type(2) {
+        animation: rotating 3s linear infinite;
+        }
+    
+    
+    body:has(label:nth-of-type(1) input#stopAnimatie:checked) header section:nth-of-type(2) {
+        animation-iteration-count: 1;
+        animation-fill-mode: backwards;
+        }
+    body:has(label:nth-of-type(1) input#stopAnimatie:checked) header > label:nth-of-type(1):before{
+        content: "Start";
+        }
+    body:has(label:nth-of-type(1) input#stopAnimatie:checked) header div.toneArm {
+        animation: none;
+        rotate: -.1deg;
+        transition: 1s;
+        }
+    
+    }
+
+
+@media (max-height: 780px) and (min-width: 950px ){
+    /* Rpm choice */
+    
+    header fieldset {
+        bottom: 30vh;
+        }
+    }
+
+@media (min-height: 800px) and (min-width: 1335px) {
+    body{
+        /* background-color: yellow !important; */
+        }
+    
+    header div.toneArm{
+        rotate: 14deg;
+        }
+    }
+
+
+@media (max-width: 700px){
+    
+    header nav {
+        display: none;
+        }
+    
+    
+    header section:nth-of-type(1){
+        margin: 0 0 0 1em;
+        }
+    
+    header section:nth-of-type(2){
+        top: 1em;
+        right: 5vw;
+        left: auto;
+        }
+    header section:nth-of-type(2) > * {
+        display: none;
+        }
+    
+    header section:nth-of-type(2) img{
+        display: initial;
+        }
+    
+    header section.mobile-only{
+        display: initial;
+        position: absolute;
+        left: 5vw;
+        bottom: 40vh;
+        }
+    
+    
+    header div.toneArm {
+        display: none;
+        }
+    header fieldset div {
+        display: none;
+        }
+    
+        
+    header section:nth-of-type(2) h2.no-reduce{
+        font-size: 1em;
+        }
+    header > label:first-of-type{
+        display: none;
+        }
+    header fieldset{
+        display: none;
+        }
+    
+    
+    main section{
+        gap: 3em;
         }
     
     }

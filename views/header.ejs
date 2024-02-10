@@ -36,7 +36,8 @@
 			</ul>
 		</nav>
 <section>
-	<h2><marquee><%= tidalInfo.title %></marquee></h2>
+	<h2 class="no-reduce"><marquee><%= tidalInfo.title %></marquee></h2>
+	<h2 class="reduce-only"><%= tidalInfo.title %></h2>
 	<h3><%= tidalArtist.name %></h3>
 	<h4>Side A</h4>
 	<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 616.07 452.47"><defs></defs><path id="curve" class="cls-1" d="M82.1,436.57l2.88-.51c142.72-25.28,277.59-83.44,348.93-169.88h0c88.26-65.58,200.64-152.27,200.68-232.13L618.87.21"/>
@@ -53,7 +54,11 @@
 
 </section>
 		<div class="toneArm"></div>
+	<section class="mobile-only">
+		<h2 class="reduce-only"><%= tidalInfo.title %></h2>
+	<h3><%= tidalArtist.name %></h3>
 
+	</section>
 
 		<div class="tidal-embed" data-type="t" data-id="<%= tidalAlbum.data[1].id %>"></div>
 <!--		<div class="tidal-embed" data-type="t" data-id="250011941"></div>-->
@@ -91,7 +96,6 @@
 	  </label>
 
     </div>
-    <div>
   </fieldset>
 </form>
 	</header>

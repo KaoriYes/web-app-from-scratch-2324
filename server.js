@@ -2,8 +2,8 @@ const express = require("express");
 const app = express();
 const http = require('http').Server(app);
 const port = 1337;
-const { marked } = require('marked');
-const fs = require('fs');
+// const { marked } = require('marked');
+// const fs = require('fs');
 
 
 
@@ -18,14 +18,14 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 
-const tidalApiToken = process.env.TIDAL_API_TOKEN;
-const tidalClientId = process.env.TIDAL_CLIENT_ID;
-const tidalClientSecret = process.env.TIDAL_CLIENT_SECRET;
-const b64creds = btoa(`${tidalClientId}:${tidalClientSecret}`);
-
-const formData = new URLSearchParams();
-formData.append('grant_type', 'client_credentials');
-
+// const tidalApiToken = process.env.TIDAL_API_TOKEN;
+// const tidalClientId = process.env.TIDAL_CLIENT_ID;
+// const tidalClientSecret = process.env.TIDAL_CLIENT_SECRET;
+// const b64creds = btoa(`${tidalClientId}:${tidalClientSecret}`);
+//
+// const formData = new URLSearchParams();
+// formData.append('grant_type', 'client_credentials');
+//
 // fetch('https://auth.tidal.com/v1/oauth2/token', {
 //     method: 'POST',
 //     headers: {
@@ -69,7 +69,7 @@ let tidalID = "76331728";
 
 
 
-console.log(tidalID);
+// console.log(tidalID);
 
 let tidalInfo = '';
 let tidalAlbum = '';
