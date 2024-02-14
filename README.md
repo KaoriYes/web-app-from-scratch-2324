@@ -47,22 +47,59 @@ TBA
 
 [//]: # (|            | *Project* - your app is working and published on GitHub Pages. Your project is thoroughly documented in the `README.md` file in your repository.                                       |             |)
 
+## docu
+### breackdown schets
+![Web App From Scratch 23-24](https://github.com/KaoriYes/web-app-from-scratch-2324/assets/118189343/b740cb62-0f27-4e3b-af57-43d856b24310)
+zie header.ejs 
+
 <!-- Add a link to your live demo in Github Pages 🌐-->
+https://wafs-kaori1.onrender.com/
 
 <!-- ☝️ replace this description with a description of your own work -->
+Ik heb een applicatie/portfolio gemaakt door gebruik te maken van de Tidal Api in een EJS|Express Node framework//server
 
 <!-- replace the code in the /public folder with your own, so you can showcase your work with GitHub Pages 🌍 -->
 
 <!-- Add a nice poster image here at the end of the week, showing off your shiny frontend 📸 -->
+![Web App From Scratch 23-24](https://github.com/KaoriYes/web-app-from-scratch-2324/assets/118189343/b740cb62-0f27-4e3b-af57-43d856b24310)
 
 <!-- Maybe a table of contents here? 📚 -->
 
 <!-- How about a section that describes how to install this project? 🤓 -->
+Typ `node install` in de terminal
+
+Of gebruikt `node --version` om te checken of je node al hebt geinstalleerd op je computer
+
+### GIT
+**Installeer GIT**
+Typ `git install` in je terminal
+
+Of gebruik `git --version` om te checken of je GIT al hebt geinstalleerd op je computer
+
+***
+
+
+**Clone onze repositorie**
+
+`git clone https://github.com/KaoriYes/studs`
+
+**Installeer NPM**
+
+`npm install`
+
+**Start Node.js**
+
+`npm start`
+
 
 <!-- ...but how does one use this project? What are its features 🤔 -->
 
+Het is niet echt een project dat je kan gebruiken, maar het is wel een leuk voorbeeld om van de te spieken als je ooit een vinyl site moet maken
+
 <!-- What external data source is featured in your project and what are its properties 🌠 -->
+Mijn voornaamste data source is de Tidal API 
+(https://developer.tidal.com/apiref?spec=catalogue)
 
 <!-- Maybe a checklist of done stuff and stuff still on your wishlist? ✅ -->
-
+Ik zou graag nog een darkmode toevoegen, hier had ik spijtig genoeg geen tijd voor. Ook zou ik op de duur een automatische acces code aanvrager willen maken
 <!-- How about a license here? 📜 (or is it a licence?) 🤷 -->
