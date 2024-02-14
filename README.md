@@ -78,7 +78,7 @@ Of gebruik `git --version` om te checken of je GIT al hebt geinstalleerd op je c
 ***
 
 
-**Clone onze repositorie**
+**Clone repository**
 
 `git clone https://github.com/KaoriYes/studs`
 
