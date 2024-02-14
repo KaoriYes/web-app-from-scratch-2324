@@ -52,6 +52,9 @@ TBA
 ![Web App From Scratch 23-24](https://github.com/KaoriYes/web-app-from-scratch-2324/assets/118189343/b740cb62-0f27-4e3b-af57-43d856b24310)
 zie header.ejs 
 
+
+### uitleg code
+Ik heb niet heel veel moeilijke code die uitgelegd moet worden, komt in het gesprek wel ter spraken
 <!-- Add a link to your live demo in Github Pages 🌐-->
 https://wafs-kaori1.onrender.com/
 
@@ -101,4 +104,5 @@ Mijn voornaamste data source is de Tidal API
 
 <!-- Maybe a checklist of done stuff and stuff still on your wishlist? ✅ -->
 Ik zou graag nog een darkmode toevoegen, hier had ik spijtig genoeg geen tijd voor. Ook zou ik op de duur een automatische acces code aanvrager willen maken
+Waar ik echt moeite mee had, was om het album bij elke refresh te restarten. Dat is nietg elukt omdat ik het niet voor elkaar kreeg om bij refresh een nieuwe request te sturen, hij bleef hangen op de vorige request.
 <!-- How about a license here? 📜 (or is it a licence?) 🤷 -->
