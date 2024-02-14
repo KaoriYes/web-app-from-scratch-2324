@@ -7,13 +7,13 @@
         "woonVijver": "De Poel",
         "favorieteBrood": "Hollandsgrof",
         "kwikKwekKwak": "Kwek",
-        "favorieteDoelwit": [
+        "favorieteDoelwit":
             {
                 "doelwit1": "Redouan Kwakkie",
                 "doelwit2": "Mark Rutte",
                 "doelwit3": "Tristan"
             }
-        ]
+
     }
 }
 
