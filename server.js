@@ -18,7 +18,35 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 
-// cc
+// const tidalApiToken = process.env.TIDAL_API_TOKEN;
+// const tidalClientId = process.env.TIDAL_CLIENT_ID;
+// const tidalClientSecret = process.env.TIDAL_CLIENT_SECRET;
+// const b64creds = btoa(`${tidalClientId}:${tidalClientSecret}`);
+//
+// const formData = new URLSearchParams();
+// formData.append('grant_type', 'client_credentials');
+//
+// fetch('https://auth.tidal.com/v1/oauth2/token', {
+//     method: 'POST',
+//     headers: {
+//         'Authorization': `Basic ${b64creds}`,
+//         'Content-Type': 'application/x-www-form-urlencoded'
+//     },
+//     body: formData
+// })
+//     .then(response => {
+//         if (!response.ok) {
+//             throw new Error(`HTTP error! Status: ${response.status}`);
+//         }
+//         return response.json();
+//     })
+//     .then(data => {
+//         console.log('test');
+//         console.log(data);
+//     })
+//     .catch(error => {
+//         console.error('Error:', error.message);
+//     });
 
 
 let tidalID = "76331728";
