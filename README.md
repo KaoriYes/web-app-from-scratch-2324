@@ -60,8 +60,7 @@ Ik heb een applicatie/portfolio gemaakt door gebruik te maken van de Tidal Api i
 
 <!-- replace the code in the /public folder with your own, so you can showcase your work with GitHub Pages 🌍 -->
 
-<!-- Add a nice poster image here at the end of the week, showing off your shiny frontend 📸 -->
-![Web App From Scratch 23-24](https://github.com/KaoriYes/web-app-from-scratch-2324/assets/118189343/b740cb62-0f27-4e3b-af57-43d856b24310)
+
 
 <!-- Maybe a table of contents here? 📚 -->
 
