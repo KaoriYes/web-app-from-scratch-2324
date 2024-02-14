@@ -18,39 +18,11 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 
-// const tidalApiToken = process.env.TIDAL_API_TOKEN;
-// const tidalClientId = process.env.TIDAL_CLIENT_ID;
-// const tidalClientSecret = process.env.TIDAL_CLIENT_SECRET;
-// const b64creds = btoa(`${tidalClientId}:${tidalClientSecret}`);
-//
-// const formData = new URLSearchParams();
-// formData.append('grant_type', 'client_credentials');
-//
-// fetch('https://auth.tidal.com/v1/oauth2/token', {
-//     method: 'POST',
-//     headers: {
-//         'Authorization': `Basic ${b64creds}`,
-//         'Content-Type': 'application/x-www-form-urlencoded'
-//     },
-//     body: formData
-// })
-//     .then(response => {
-//         if (!response.ok) {
-//             throw new Error(`HTTP error! Status: ${response.status}`);
-//         }
-//         return response.json();
-//     })
-//     .then(data => {
-//         console.log('test');
-//         console.log(data);
-//     })
-//     .catch(error => {
-//         console.error('Error:', error.message);
-//     });
+// cc
 
 
 let tidalID = "76331728";
-
+//
 // const tidalIDS = ["123591955", "260579298", "271240948", "174448504", "307603174", "662795", "149575174", "245042535", "655910", "2178485", "272254582", "286130505", "109485854", "286130505" ]
 //
 // function randomizeTidalID() {
