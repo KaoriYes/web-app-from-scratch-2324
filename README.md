@@ -49,12 +49,131 @@ TBA
 
 ## docu
 ### breackdown schets
-![Web App From Scratch 23-24](https://github.com/KaoriYes/web-app-from-scratch-2324/assets/118189343/b740cb62-0f27-4e3b-af57-43d856b24310)
-zie header.ejs 
+![breakdownschets.png](breakdownschets.png)
 
 
 ### uitleg code
-Ik heb niet heel veel moeilijke code die uitgelegd moet worden, komt in het gesprek wel ter spraken
+
+
+``` javascript
+fetch(`https://openapi.tidal.com/albums/${tidalID}?countryCode=US`, {
+method: 'GET',
+headers: {
+'accept': 'application/vnd.tidal.v1+json',
+'Authorization': `Bearer ${accessToken}`,
+'Content-Type': 'application/vnd.tidal.v1+json'
+}
+})
+.then(response => {
+if (!response.ok) {
+throw new Error(`HTTP error! Status: ${response.status}`);
+}
+return response.json();
+})
+.then(data => {
+// console.log(data);
+tidalInfo = data.resource;
+// console.log(tidalInfo);
+tidalInfo?.artists.forEach(artist => {
+tidalArtist = artist;
+})})
+.catch(error => {
+console.error('Error:', error.response ? error.response.data : error.message);
+})
+```
+
+
+#### Fetch voor TIDAL Album Informatie
+Deze fetch-functie haalt gegevens op over een specifiek album van TIDAL. Het maakt gebruik van de TIDAL Open API en vereist een geldige toegangstoken voor authenticatie. Door een verzoek te sturen naar het juiste eindpunt met het album-ID, krijgen we details zoals de titel, artiest(en) en andere metadata van het album terug als een JSON-respons. Deze informatie wordt vervolgens gebruikt om de gebruiker op de hoogte te stellen van essentiële albumgegevens.
+
+
+
+#### Fetch voor TIDAL Album Tracks
+Daarna gebruik ik die tidal ID om de tracks van het album op te halen
+```javascript
+
+fetch(`https://openapi.tidal.com/albums/${tidalID}/items?countryCode=US&offset=0`, {
+    method: 'GET',
+    headers: {
+        'accept': 'application/vnd.tidal.v1+json',
+        'Authorization': `Bearer ${accessToken}`,
+        'Content-Type': 'application/vnd.tidal.v1+json'
+    }
+})
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        // console.log(data);
+        tidalAlbum = data;
+        // console.log(tidalAlbum.data[1].id);
+    })
+    .catch(error => {
+        console.error('Error:', error.message);
+    });
+```
+Deze fetch-functie is verantwoordelijk voor het ophalen van de lijst met tracks van een specifiek album van TIDAL. Het werkt op een vergelijkbare manier als de fetch-functie voor albuminformatie, maar richt zich specifiek op het verzamelen van trackgegevens. Het resultaat is een JSON-object met details zoals de tracknaam, duur en volgorde binnen het album. Deze informatie is belangrijk om de gebruiker een volledig beeld te geven van wat ze kunnen verwachten bij het beluisteren van het album.
+
+Deze fetch-functies zijn essentieel voor het dynamisch ophalen van gegevens van TIDAL's servers en vormen de basis voor het presenteren van relevante informatie aan gebruikers op een webpagina.
+
+
+#### API call client side
+```javascript
+async function fetchDataAndRender() {
+    try {
+        const response = await fetch('./docs/data/eigenschappen.json');
+        const data1 = await response.json();
+        const data = data1.eend;
+        const eend = data.favorieteDoelwit;
+        console.log(eend);
+
+        // Get reference to the <main> element
+        const mainElement = document.querySelector('main');
+
+        // Create a <div> element
+        const divElement = document.createElement('div');
+
+        // Create a <ul> element
+        const ulElement = document.createElement('ul');
+
+        // Iterate through the data and create <li> elements
+        for (const key in data) {
+            if (Object.hasOwnProperty.call(data, key)) {
+                if (key === 'favorieteDoelwit') { // oi dit werkt niet, kan aan gewerkt worden
+                    console.log("test")
+                    const liElement = document.createElement('li');
+                    liElement.textContent = `${key}: ${eend}`;
+                    ulElement.appendChild(liElement);
+                    continue;
+                }
+                else {
+                    const liElement = document.createElement('li');
+                    liElement.textContent = `${key}: ${data[key]}`;
+                    ulElement.appendChild(liElement);
+                }
+            }
+        }
+
+        // Append the <ul> element to the <div> element
+        divElement.appendChild(ulElement);
+
+        // Append the <div> element to the <main> element
+        mainElement.appendChild(divElement);
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+fetchDataAndRender();
+```
+Hier heb ik de eigenschappen.json gefetch en die in de main gezet. Daarbij heb ik gebruik gemaakt van een for loop en zo de data in een UL gedropt. Ik heb alleen wat issues gehad met het favoriete doelwit, die wilt gek genoeg nu niks laten zien. Terwijl ik die wel goed uit de console log krijg, daar zou ik later nog een keer naar moeten kijken.
+
+
+
+
 <!-- Add a link to your live demo in Github Pages 🌐-->
 https://wafs-kaori1.onrender.com/
 
